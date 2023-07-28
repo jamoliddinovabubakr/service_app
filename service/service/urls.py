@@ -19,3 +19,11 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
+
+from rest_framework import routers
+from services.views import SubscriptionView
+
+router = routers.DefaultRouter()
+router.register(r'api/subscriptions', SubscriptionView)
+
+urlpatterns += router.urls
